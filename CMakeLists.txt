@@ -6,27 +6,24 @@ configure_file(version.h.in ${PROJECT_SOURCE_DIR}/version.h)
 
 add_library(version lib.cpp)
 
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
 find_package(Threads REQUIRED)
 
-add_executable(homework
+add_executable(helloworld_cli
   main.cpp
 )
 
-target_link_libraries(homework
+set_target_properties(helloworld_cli version PROPERTIES
+    CXX_STANDARD 17
+    CXX_STANDARD_REQUIRED ON
+    COMPILE_OPTIONS "-Wpedantic;-Wall;-Wextra"
+)
+
+target_link_libraries(helloworld_cli
     version
     Threads::Threads)
 
 
-install(TARGETS homework RUNTIME DESTINATION bin)
+install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
 
