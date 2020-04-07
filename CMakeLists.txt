@@ -6,8 +6,6 @@ configure_file(version.h.in ${PROJECT_SOURCE_DIR}/version.h)
 
 add_library(version lib.cpp)
 
-find_package(Threads REQUIRED)
-
 add_executable(helloworld_cli
   main.cpp
 )
@@ -19,8 +17,7 @@ set_target_properties(helloworld_cli version PROPERTIES
 )
 
 target_link_libraries(helloworld_cli
-    version
-    Threads::Threads)
+    version)
 
 
 install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
