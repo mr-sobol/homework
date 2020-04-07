@@ -19,7 +19,6 @@ set_target_properties(helloworld_cli version PROPERTIES
 target_link_libraries(helloworld_cli
     version)
 
-
 install(TARGETS helloworld_cli RUNTIME DESTINATION bin)
 
 set(CPACK_GENERATOR DEB)
