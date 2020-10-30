@@ -1,8 +1,6 @@
 dist: xenial
 language: cpp
-compiler:
-  - clang
-  - gcc
+compiler: clang
 addons:
   apt:
     packages:
